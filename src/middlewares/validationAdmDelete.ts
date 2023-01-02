@@ -3,7 +3,7 @@ import { AppError } from "../errors/AppError";
 
 
 
-const validationAdm = async(req: Request, res: Response, next: NextFunction) => {
+const validationAdmDelete = async(req: Request, res: Response, next: NextFunction) => {
 
     if(req.body.user.isAdm === true){
       next()
@@ -14,4 +14,4 @@ const validationAdm = async(req: Request, res: Response, next: NextFunction) => 
  
  }
 
-export default validationAdm
+export default validationAdmDelete
