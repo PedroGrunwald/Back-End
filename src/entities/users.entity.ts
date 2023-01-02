@@ -3,8 +3,8 @@ import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, PrimaryGe
 
 @Entity('users')
 class User {
-    @PrimaryGeneratedColumn("uuid")
-    id: string;
+    @PrimaryGeneratedColumn()
+    id: number;
 
     @Column({ length: 50 })
     name: string;

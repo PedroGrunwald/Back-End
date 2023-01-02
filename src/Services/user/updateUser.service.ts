@@ -2,9 +2,9 @@ import { IUser, IUserUpdate } from '../../interfaces/users/index'
 import AppDataSource from '../../data-source'
 import { User } from '../../entities/users.entity'
 import { userTotal } from '../../schemas/user.schema'
-import { AppError } from '../../errors/AppError'
 
-const updateUserService = async (userData: IUserUpdate, userId: string): Promise<IUser> => {
+
+const updateUserService = async (userData: IUserUpdate, userId: number): Promise<IUser> => {
 
     const userRepository = AppDataSource.getRepository(User)
 

@@ -7,13 +7,13 @@ import { AppError } from "../errors/AppError"
 const validationUserExist = async (req: Request, res: Response, next: NextFunction) => {
 
     const foundUser = AppDataSource.getRepository(User)
-
+    const reqParamsId = parseInt(req.params.id)
     const user = await foundUser.findOneBy({
-        id: req.params.id
+        id: reqParamsId
     })
     
     if(!user) {        
-        throw new AppError('User not found', 404)
+        throw new AppError('User not found', 400)
     }
 
    return next()

@@ -3,7 +3,7 @@ import { User } from '../../entities/users.entity'
 import { AppError } from '../../errors/AppError'
 
 
-const deleteUserService = async (userId: string, isActive: Boolean) => {
+const deleteUserService = async (userId: number, isActive: Boolean) => {
     const userRepository = AppDataSource.getRepository(User)
 
     const searchUser = await userRepository.findOneBy({
@@ -17,9 +17,11 @@ const deleteUserService = async (userId: string, isActive: Boolean) => {
     }
 
 
-    searchUser.isActive = false
-
-    await userRepository.save(searchUser)
+    // searchUser.isActive = false
+    await userRepository.update(userId,{
+        isActive:false
+    })
+  
 
 };
 export default deleteUserService
