@@ -17,7 +17,6 @@ const deleteUserService = async (userId: number, isActive: Boolean) => {
     }
 
 
-    // searchUser.isActive = false
     await userRepository.update(userId,{
         isActive:false
     })
